@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <title>Certificate</title>
+  </head>
+  <body style="width: 100%">
+    <div
+      class=""
+      style="
+        background-image: url('https://snowlabs-stag.s3.ap-south-1.amazonaws.com/Certificate-background-2.png');
+        background-repeat: no-repeat;
+        height: 986px;
+        background-size: contain;
+        position: relative;
+        font-family: 'Arial';
+        width: 100%;
+      "
+    >
+      <div class="" style="position: absolute; right: 5rem; top: 5.2rem">
+        <span
+          class="cerificateId"
+          style="font-size: 1.2rem; margin-right: 2.3rem"
+          >{{ID}}</span
+        >
+      </div>
+      <div
+        class=""
+        style="
+          position: absolute;
+          top: 29rem;
+          left: 0%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <span
+          class="courseName"
+          style="color: #01b2f5; font-weight: 600; font-size: 1.5rem"
+          >{{COURSE_NAME}}</span
+        >
+      </div>
+      <div
+        class=""
+        style="
+          position: absolute;
+          top: 58%;
+          left: 0%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <span
+          class="studentName"
+          style="font-family: 'Great Vibes'; font-size: 3rem"
+          >{{YOUR_NAME}}</span
+        >
+      </div>
+      <span
+        class="date"
+        style="
+          position: absolute;
+          bottom: 8.6%;
+          left: 9.5rem;
+          font-size: 1rem;
+          font-weight: 600;
+        "
+        >{{DATE}}</span
+      >
+    </div>
+  </body>
+</html>

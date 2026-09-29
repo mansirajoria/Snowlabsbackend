@@ -14,6 +14,7 @@ logs/
 
 # testing
 /coverage
+src/utils/google-key.json
 
 # next.js
 /.next/

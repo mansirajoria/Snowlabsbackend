@@ -13,6 +13,7 @@
     "sourceMap": true,
     "declaration": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "skipLibCheck": true,
     "importHelpers": false,
     "baseUrl": "./src",

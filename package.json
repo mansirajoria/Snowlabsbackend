@@ -15,13 +15,14 @@
     "seed:create": "hygen seeds create",
     "seed:run": "ts-node -r tsconfig-paths/register ./src/database/seeds/run-seed.ts",
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "nest build && tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "nodemon": "nodemon -r tsconfig-paths/register src/main.ts --trace-warnings",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "start:vercel": "node api/index.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -78,6 +79,7 @@
     "typeorm": "^0.3.15",
     "uuid": "^11.1.0",
     "winston": "^3.17.0"
+    ,"serverless-http": "^3.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.4.0",

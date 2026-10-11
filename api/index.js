@@ -1,3 +1,6 @@
+// Vercel serverless function wrapper
+const { handler } = require('../dist/src/main.server');
+module.exports = (req, res) => handler(req, res);
 const serverless = require('serverless-http');
 const { createServer } = require('./server');
 

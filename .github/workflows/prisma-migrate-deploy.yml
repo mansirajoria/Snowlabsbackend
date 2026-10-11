@@ -27,6 +27,8 @@ jobs:
         run: npm ci
 
       - name: Prisma migrate deploy
+        if: ${{ secrets.DATABASE_URL != '' }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PRISMA_TELEMETRY_DISABLED: '1'
         run: npx prisma migrate deploy

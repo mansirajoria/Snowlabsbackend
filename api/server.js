@@ -1,11 +1,11 @@
 const { NestFactory } = require('@nestjs/core');
-const { AppModule } = require('../dist/app.module');
+const { AppModule } = require('../dist/src/app.module');
+const { ExpressAdapter } = require('@nestjs/platform-express');
 const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
 
 async function createServer() {
   const server = express();
-  const app = await NestFactory.create(AppModule, server, { logger: false });
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), { logger: false });
   await app.init();
   return server;
 }

@@ -13,6 +13,9 @@ jobs:
   migrate:
     runs-on: ubuntu-latest
     environment: production
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      PRISMA_TELEMETRY_DISABLED: '1'
 
     steps:
       - name: Checkout
@@ -27,8 +30,12 @@ jobs:
         run: npm ci
 
       - name: Prisma migrate deploy
-        if: ${{ secrets.DATABASE_URL != '' }}
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
           PRISMA_TELEMETRY_DISABLED: '1'
-        run: npx prisma migrate deploy
+        run: |
+          if [ -z "${DATABASE_URL}" ]; then
+            echo "DATABASE_URL not set — skipping prisma migrate deploy"
+          else
+            npx prisma migrate deploy
+          fi

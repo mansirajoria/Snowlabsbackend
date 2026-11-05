@@ -12,6 +12,8 @@ This document lists the environment variables required to run the Snowlabs backe
 - `DATABASE_NAME` — database name
 - `DATABASE_USERNAME` — DB username
 - `DATABASE_PASSWORD` — DB password
+- `DATABASE_SSL_ENABLED` — set to `true` when the database requires TLS (for example, Neon)
+- `DATABASE_REJECT_UNAUTHORIZED` — defaults to `true`; set to `false` only for certificates that cannot be validated
 - `AUTH_JWT_SECRET` — long random secret for signing JWTs
 
 ## Recommended additional variables (only if using the feature)
@@ -19,8 +21,11 @@ This document lists the environment variables required to run the Snowlabs backe
 - AWS S3: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`, `AWS_BUCKET_NAME`
 - Redis: `WORKER_HOST` (e.g., `redis://host:6379/1`)
 - OAuth: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `FACEBOOK_CLIENT_ID`, `FACEBOOK_CLIENT_SECRET`, `LINKEDIN_CLIENT_ID`, `LINKEDIN_CLIENT_SECRET` and callback URLs
+- Google Analytics: `GOOGLE_ANALYTICS_PROPERTY_ID`, `GOOGLE_ANALYTICS_API_KEY`, `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`
 - Stripe: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
 - `SENDGRID_API_KEY` (if using SendGrid)
+
+For Google Analytics, add the service account email to the Analytics property's viewer access. Store its private key in `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` (Vercel accepts multiline values; if entered with literal `\n`, the backend converts them to newlines). Do not commit the service-account JSON file or its private key.
 
 ---
 

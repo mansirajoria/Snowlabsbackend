@@ -1,5 +1,4 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
-import * as GoogleKeys from '../utils/google-key.json';
 import { google } from 'googleapis';
 import axios from 'axios';
 import HttpException from '@utils/exceptions/HttpException';
@@ -8,18 +7,27 @@ import HttpException from '@utils/exceptions/HttpException';
 export class AnalyticsService {
   private reporting = google.analyticsreporting('v4');
   private scopes = ['https://www.googleapis.com/auth/analytics.readonly'];
-  private jwt = new google.auth.JWT({
-    email: GoogleKeys.client_email,
-    key: GoogleKeys.private_key,
-    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
-  });
-  private propertyId = '366812364';
-  private apiKey = 'AIzaSyBx0U2HIigZf_t-XavJ6B6co1EiD4tQ8Ec';
+  private propertyId = process.env.GOOGLE_ANALYTICS_PROPERTY_ID || '366812364';
+  private apiKey = process.env.GOOGLE_ANALYTICS_API_KEY;
   constructor() {}
 
   async getViewerCount(): Promise<any> {
+    const serviceAccountEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+    const serviceAccountPrivateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY;
+    if (!serviceAccountEmail || !serviceAccountPrivateKey || !this.apiKey) {
+      throw new HttpException(
+        HttpStatus.SERVICE_UNAVAILABLE,
+        'Google Analytics credentials are not configured',
+      );
+    }
+
     try {
-      const token = await this.jwt.authorize(); // Assuming this.jwt.authorizeAsync() returns a Promise
+      const jwt = new google.auth.JWT({
+        email: serviceAccountEmail,
+        key: serviceAccountPrivateKey.replace(/\\n/g, '\n'),
+        scopes: this.scopes,
+      });
+      const token = await jwt.authorize();
       const data = {
         dateRanges: [
           {

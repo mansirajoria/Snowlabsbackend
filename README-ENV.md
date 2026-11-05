@@ -33,32 +33,13 @@ If using a managed DB (AWS RDS / DigitalOcean / Azure / Heroku):
 1. Create a database instance in your provider (choose a strong, unique username and password).
 2. Configure the VPC / public access / security group so your Vercel deployment (or a DB proxy) can reach it.
 3. Copy the connection details and set these env vars in Vercel: `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
-4. (Recommended) Use an RDS Proxy or PgBouncer if your DB provider supports it, or use Prisma Data Proxy.
+4. For Neon, use the connection details from your Neon project. The backend currently reads the individual `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD` variables.
 
-Alternatively, set a single connection URL as `DATABASE_URL`:
+The current TypeORM configuration reads the individual `DATABASE_*` variables above, not `DATABASE_URL`. If you exposed DB credentials earlier, rotate them now from your DB provider console.
 
-postgres://<username>:<password>@<host>:5432/<database>
+### 2) Database migrations
 
-Note: If you exposed DB credentials earlier, rotate them now from your DB provider console.
-
-### 2) Prisma (generate client)
-
-1. Ensure `prisma` and `@prisma/client` are installed.
-2. Set `DATABASE_URL` in your environment (locally in `.env`, in Vercel as an Environment Variable).
-3. Run locally:
-
-```bash
-npx prisma generate
-npx prisma migrate dev --name init    # only for development
-```
-
-For production deploys run migrations from a CI runner or admin host:
-
-```bash
-npx prisma migrate deploy
-```
-
-If using Vercel, use `prisma generate` in the build step (see `vercel-build` script in `package.json`).
+The backend uses TypeORM with PostgreSQL (including Neon). Create and run TypeORM migrations using the `migration:generate` and `migration:run` scripts in `package.json`. Run production migrations as a separate deployment step; Vercel builds only compile the application.
 
 ### 3) AWS S3 (file storage)
 
@@ -96,10 +77,10 @@ Rotate keys if they were exposed.
 
 1. Open your Project in Vercel.
 2. Go to Settings → Environment Variables.
-3. Add each key (e.g., `DATABASE_URL`) and its value; choose `Production`, `Preview`, or `Development` scope.
+3. Add each required key (for example, `DATABASE_HOST`) and its value; choose `Production`, `Preview`, or `Development` scope.
 
 Secrets that must be set on Vercel for Snowlabs backend (suggested list):
-- `DATABASE_URL` (or set individual DB keys if your app reads them)
+- `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`
 - `AUTH_JWT_SECRET`
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
@@ -122,13 +103,12 @@ Secrets that must be set on Vercel for Snowlabs backend (suggested list):
 
 1. Copy `.env.example` to `.env` and fill values.
 2. Install dependencies: `npm ci`.
-3. Generate Prisma client: `npx prisma generate`.
-4. Build: `npm run build`.
-5. Start locally: `npm run start:dev`.
+3. Build: `npm run build`.
+4. Start locally: `npm run start:dev`.
 
 ## Final notes
 - Use least privilege for service accounts.
 - Use secret rotation regularly and auditing.
-- For serverless deployments use Prisma Data Proxy or a DB proxy for stable connections.
+- For serverless deployments, use Neon's pooled connection option where appropriate.
 
 If you want, I can add this README file to the repo and commit it; do you want me to commit now? 

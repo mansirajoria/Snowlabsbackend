@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AnalyticsService } from './analytics.service';
-import { beforeEach, describe, it } from 'node:test';
+import { it } from 'node:test';
 
 describe('AnalyticsService', () => {
   let service: AnalyticsService;
@@ -17,6 +17,13 @@ describe('AnalyticsService', () => {
     expect(service).toBeDefined();
   });
 });
+
 function expect(service: AnalyticsService) {
-  throw new Error('Function not implemented.');
+  return {
+    toBeDefined() {
+      if (service === undefined || service === null) {
+        throw new Error('Expected service to be defined.');
+      }
+    },
+  };
 }

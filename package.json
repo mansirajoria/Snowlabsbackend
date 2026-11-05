@@ -15,7 +15,7 @@
     "seed:create": "hygen seeds create",
     "seed:run": "ts-node -r tsconfig-paths/register ./src/database/seeds/run-seed.ts",
     "prebuild": "rimraf dist tsconfig.tsbuildinfo tsconfig.build.tsbuildinfo",
-    "build": "nest build && tsc -p tsconfig.json",
+    "build": "nest build && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest build && node -r ./api/register-paths.js dist/main.js",
     "start:dev": "nest start --watch --exec \"node -r ./api/register-paths.js\"",

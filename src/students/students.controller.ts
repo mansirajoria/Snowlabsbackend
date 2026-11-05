@@ -19,7 +19,7 @@ import ResponseHandler from '@utils/response.handler';
 import { TransformInterceptor } from '@utils/interceptors/response.interceptor';
 import { getEnrollmentMailBody } from '@utils/helpers/mailbody.helper';
 import { Enrollment } from '@batch/entities/enrollment.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { MailService } from '@mail/mail.service';
 
 @UseInterceptors(TransformInterceptor)

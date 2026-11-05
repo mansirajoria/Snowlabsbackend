@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { google } from 'googleapis';
-import HttpException from '@utils/exceptions/HttpException';
+import HttpException from '../utils/exceptions/HttpException';
 
 @Injectable()
 export class AnalyticsService {

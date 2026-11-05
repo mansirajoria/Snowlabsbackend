@@ -21,7 +21,6 @@ import { WebinarCategory } from './entities/webinar-category.entity';
 import { CreateWebinarCategoryDTO } from './dto/create-webinar-category.dto';
 import { MeetDto } from 'microsoft-team/dto/response.dto';
 import { MicrosoftTeamService } from 'microsoft-team/microsoft-team.service';
-// import * as moment from 'moment';
 import { convertISTtoUTC } from '@utils/weekday.service';
 import { NotificationsService } from '@notifications/notifications.service';
 import { SlugDto } from '@courses/interfaces/course.interface';
@@ -35,7 +34,7 @@ import {
   getWebinarEnrollmentMailBody,
   webinarCancelBody,
 } from '@utils/helpers/mailbody.helper';
-import * as moment from 'moment-timezone';
+import moment = require('moment-timezone');
 import { SessionEntity } from '@session/entities/session.entity';
 import { Cron, CronExpression } from '@nestjs/schedule';
  

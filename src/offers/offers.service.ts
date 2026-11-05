@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Offers } from './entities/offers.entity';
 import { LessThan, MoreThan, MoreThanOrEqual, Repository } from 'typeorm';
 import { OfferDto } from './dto/create-offer.dto';
-import * as moment from 'moment';
+import moment = require('moment');
 import { FindDto } from '@skills/dto/find.dto';
 import { FindOfferDto } from './dto/fins-offer.dto';
 import { UpdateOfferDto } from './dto/update-offer.dto';

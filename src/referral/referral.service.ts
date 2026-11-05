@@ -6,7 +6,7 @@ import { Referral } from './entities/referral.entity';
 import { And, Between, LessThan, MoreThan, Repository } from 'typeorm';
 import { generateReferralSequence } from '@utils/sequence-generator/sequence.service';
 import { AuthEntity } from '@auth/entities/auth.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import HttpException from '@utils/exceptions/HttpException';
 import { QueryReferralDTO } from './dto/query-referral.dto';
 import { ReferralCouponStatus, RewardCouponStatus } from '@utils/enum';

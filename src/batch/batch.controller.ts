@@ -51,7 +51,7 @@ import {
 } from '@utils/helpers/mailbody.helper';
 import { MailService } from '@mail/mail.service';
 import { SessionService } from '@session/session.service';
-import * as moment from 'moment';
+import moment = require('moment');
 import { BatchType } from 'typeorm';
 
 @ApiTags('Batch-Controller')

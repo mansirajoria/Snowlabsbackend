@@ -6,7 +6,7 @@ import { Student } from '@students/entities/student.entity';
 import { Course } from '@courses/entities/course.entity';
 import { Trainer } from '@trainer/entities/trainer.entity';
 import { BatchEntity } from '@batch/entities/batch.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { Webinar } from '@webinars/entities/webinar.entity';
 import { Blog } from '@blogs/entities/blog.entity';
 import { MockTest } from 'mockTest/entities/mock-test.entity';

@@ -12,7 +12,7 @@ import { TakeQuizDto } from './dto/user-quiz-answer.dto';
 import { QuizStatusType } from '@utils/enum';
 import HttpException from '@utils/exceptions/HttpException';
 import { QuizQuestionEntity } from './entities/question-quiz.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { SearchQuizDto } from './dto/search-quiz.dto';
 import { EditQuizDto, EditQuizQuestion } from './dto/edit-quiz.dto';
 import { Enrollment } from '@batch/entities/enrollment.entity';

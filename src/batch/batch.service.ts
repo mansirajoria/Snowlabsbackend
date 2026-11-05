@@ -11,7 +11,7 @@ import {
   W,
 } from 'typeorm';
 import { CreateBatchDto } from './dto/createBatch.dto';
-import * as moment from 'moment';
+import moment = require('moment');
 import { Trainer } from '@trainer/entities/trainer.entity';
 import HttpException from '@utils/exceptions/HttpException';
 import { Course } from '@courses/entities/course.entity';

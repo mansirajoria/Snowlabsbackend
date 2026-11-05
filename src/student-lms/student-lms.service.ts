@@ -43,7 +43,7 @@ import { QuizSubmission } from 'quiz-submission/entities/quiz-submission.entity'
 import { SessionFeedbackQuestions } from 'session/entities/session-feedback-questions.entity';
 import { retry, throwError } from 'rxjs';
 import { QuizEntity } from 'quiz/entities/create-quiz.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { FeedbackQuestion } from 'feedbacks/dto/feedback-form.dto';
 import { FeedbackQuestions } from 'feedbacks/entities/feedback-questions.entity';
 import { SearchFeedBackDto } from 'feedbacks/dto/search-form.dto';

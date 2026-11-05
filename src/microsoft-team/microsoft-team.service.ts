@@ -32,7 +32,7 @@ import { CelenderDto } from './dto/celender.dto';
 import { AuthEntity } from '@auth/entities/auth.entity';
 import { Attendee } from './interface/attendess.interface';
 import { CredentialEntity } from 'credential/entities/credential.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { Webinar } from '@webinars/entities/webinar.entity';
 import { SessionEntity } from '@session/entities/session.entity';
 import { ResourceEntity } from 'resources/entities/create-resource.entity';

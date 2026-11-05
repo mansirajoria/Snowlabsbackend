@@ -38,7 +38,7 @@ import { CourseCategoryQuery } from './dto/query-category.dto';
 import { Trainer } from '@trainer/entities/trainer.entity';
 import { UpdateCourseCategoryDto } from '@courses/dto/update-category.dto';
 import { TrainingPlan } from '@training-plans/entities/training-plan.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { Blog } from '@blogs/entities/blog.entity';
 import { BlogCategory } from '@blogs/entities/blog-category.entity';
 import { BatchService } from '@batch/batch.service';

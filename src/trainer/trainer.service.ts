@@ -22,7 +22,7 @@ import { generatePassword, hashPassword } from '@utils/helper.service';
 import { generateTrainerSequence } from '@utils/sequence-generator/sequence.service';
 import { LoginDto } from '@auth/dto/common.dto';
 import * as bcrypt from 'bcryptjs';
-import * as moment from 'moment';
+import moment = require('moment');
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { BatchEntity } from '@batch/entities/batch.entity';

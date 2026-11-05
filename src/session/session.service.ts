@@ -26,7 +26,7 @@ import { SessionFeedback } from './entities/session-feedback.entity';
 import { SessionFeedbackQuestions } from './entities/session-feedback-questions.entity';
 import { SesssionFeedbackSubmission } from './entities/feedback-submission.entity';
 import { NotificationsService } from '@notifications/notifications.service';
-import * as moment from 'moment';
+import moment = require('moment');
 import { FeedbackSubmission } from 'feedbacks/entities/feedback-form-submission.entity';
 import { FeedbackAnswer } from 'feedbacks/entities/feedback-form-answer.entity';
 import {

@@ -11,7 +11,7 @@ import HttpException from '@utils/exceptions/HttpException';
 import { MockTestQuestionEntity } from './entities/mock-test-question.entity';
 import { SearchMockTestDto } from './dto/search-test.dto';
 import { query } from 'express';
-import * as moment from 'moment';
+import moment = require('moment');
 import { EditMockTest, EditQuestion } from './dto/edit-mockTest.dto';
 import { MockTestAnswerDto } from './dto/result-mockTest.dto';
 import { QuizQuestion } from 'quiz/dto/create-quiz.dto';

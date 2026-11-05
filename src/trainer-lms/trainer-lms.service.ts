@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { LoginDto } from '@auth/dto/common.dto';
 import * as bcrypt from 'bcryptjs';
-import * as moment from 'moment';
+import moment = require('moment');
 import { changePasswordDTO } from '@trainer_lms/dto/change-password.dto';
 import { JwtService } from '@nestjs/jwt';
 import {

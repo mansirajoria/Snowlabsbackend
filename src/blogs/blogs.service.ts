@@ -17,7 +17,7 @@ import { SlugDto } from '@courses/interfaces/course.interface';
 import { slugConversation } from '@utils/slugName';
 import { Course } from '@courses/entities/course.entity';
 import { QueryBlogCategoryDTO } from './dto/query-blog-category.dto';
-import * as moment from 'moment';
+import moment = require('moment');
 import { UpdateBlogCategoryDTO } from './dto/update-blog-category.dto';
 
 @Injectable()

@@ -29,7 +29,7 @@ import {
   RewardCouponStatus,
   enrollmentType,
 } from '@utils/enum';
-import * as moment from 'moment';
+import moment = require('moment');
 import { ConfigService } from '@nestjs/config';
 import { FeedbackSubmission } from 'feedbacks/entities/feedback-form-submission.entity';
 import { Referral } from 'referral/entities/referral.entity';

@@ -12,7 +12,7 @@ import { AssignmentEnum, ResourceType } from '@utils/enum';
 import { AssignmentSubmission } from 'assignment-submission/entities/assignment-submission.entity';
 import { Enrollment } from '@batch/entities/enrollment.entity';
 import { Student } from '@students/entities/student.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { PendingSessionDto } from 'student-lms/dto/search.dto';
 import { CopyResourseDto } from '@session/entities/copy-resource.entity';
 import { QuizEntity } from 'quiz/entities/create-quiz.entity';

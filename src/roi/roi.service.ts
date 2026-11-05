@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Payment } from '@payment/entities/payment.entity';
 import { Webinar } from '@webinars/entities/webinar.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { Repository } from 'typeorm';
 import { DateFilterDTO } from './dto/date-filter.dto';
 import { ConfigService } from '@nestjs/config';

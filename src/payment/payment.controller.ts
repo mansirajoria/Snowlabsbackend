@@ -21,7 +21,7 @@ import { Response } from 'express';
 import { AuthGuard } from '@security/guards/auth.guard';
 import { TransformInterceptor } from '@utils/interceptors/response.interceptor';
 import { StripePaymentService } from './stripe-payment.service';
-import * as moment from 'moment';
+import moment = require('moment');
 import { MailService } from '@mail/mail.service';
 import { getEnrollmentMailBody } from '@utils/helpers/mailbody.helper';
 import { EnrollDirectDTO } from './dto/enroll-direct.dto';

@@ -21,7 +21,7 @@ import HttpException from '@utils/exceptions/HttpException';
 import { MicrosoftTeamService } from 'microsoft-team/microsoft-team.service';
 import { Level } from '@access/level/entites/level.entity';
 import { Student } from '@students/entities/student.entity';
-import * as moment from 'moment';
+import moment = require('moment');
 import { MailService } from '@mail/mail.service';
 import { hashPassword, generatePassword } from '@utils/helper.service';
 import { generateStudentSequence } from '@utils/sequence-generator/sequence.service';

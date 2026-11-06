@@ -11,7 +11,10 @@ const serverless = require('serverless-http');
 const server = express();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), { logger: false });
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), {
+    cors: true,
+    logger: false,
+  });
   app.setGlobalPrefix(process.env.API_PREFIX || 'api');
   const options = new DocumentBuilder()
     .setTitle('SnowLabs Technology')

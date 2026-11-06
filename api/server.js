@@ -7,8 +7,11 @@ const { ExpressAdapter } = require('@nestjs/platform-express');
 const express = require('express');
 
 async function createServer() {
+  console.info('[startup] Initializing Nest application');
   const server = express();
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), { logger: false });
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server), {
+    logger: ['error', 'warn', 'log'],
+  });
   app.setGlobalPrefix(process.env.API_PREFIX || 'api');
   const options = new DocumentBuilder()
     .setTitle('SnowLabs Technology')
@@ -21,6 +24,7 @@ async function createServer() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
   await app.init();
+  console.info('[startup] Nest application initialized');
   return server;
 }
 
